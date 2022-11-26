@@ -6,7 +6,7 @@ package modelo;
 
 import java.util.List;
 import javafx.scene.image.Image;
-
+import javax.swing.ImageIcon;
 /**
  *
  * @author Olivier MZ
