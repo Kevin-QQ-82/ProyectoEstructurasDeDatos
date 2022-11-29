@@ -26,7 +26,7 @@
             <Label GridPane.rowIndex="2" />
             <TextField fx:id="UsernameFieldPrincipal" GridPane.columnIndex="1" />
             <TextField fx:id="passwordFieldPrincipal" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button fx:id="botonIniciarSesion" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="INICIAR SESIÓN" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="botonIniciarSesion" mnemonicParsing="false" onMouseClicked="#cambiar" prefHeight="26.0" prefWidth="110.0" text="INICIAR SESIÓN" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <Button fx:id="botonCrearUsuario" mnemonicParsing="false" text="CREAR USUARIO" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
          </children>
       </GridPane>

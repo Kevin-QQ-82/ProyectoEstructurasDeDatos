@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+ 
+
 
 import java.io.IOException;
 
@@ -13,11 +15,13 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    public static String pathImg = "Imagenes_J/";
+    
     private static Scene scene;
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("principal"), 640, 480);
+        scene = new Scene(loadFXML("catalogo"), 710, 550);
         stage.setScene(scene);
         stage.show();
     }
@@ -33,6 +37,10 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+    }
+    
+        static void changeRoot(Parent rootNode) {
+        scene.setRoot(rootNode);
     }
 
 }
