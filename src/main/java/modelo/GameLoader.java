@@ -28,7 +28,7 @@ public class GameLoader {
         cargarReseña(juegos);
         return juegos;
     }
-
+    //Crea todas las resenas en un arraylist
     public static CircularDoublyLinkedList<Juego> cargarReseña(CircularDoublyLinkedList<Juego> juegos) {
         ArrayList<Reseña> c_reseña= new ArrayList<>();
         c_reseña.addFirst(new Reseña("Complejo!", "Apex Legends","El juego requiere de mucha habiliad y comunicacion",3,"Cosme Fulanito","15/8/2022"));
@@ -43,26 +43,21 @@ public class GameLoader {
         c_reseña.addLast(new Reseña("Multijugador entretenido", "Dead by Daylight","La idea de que 4 jugadores cooperen para derrotar a otro es buena",4,"Jeremy Sarmiento","20/10/2022"));
         c_reseña.addLast(new Reseña("El Smash de los pobres", "Brawlhalla","Una autentica alternativa al Smash en PC",4,"Gonzalo Cooper","20/10/2022"));
         c_reseña.addLast(new Reseña("Entretenido con amigos", "Brawlhalla","Personajes balanceados y jugarlos con amigos, lo mejor de lejos",4,"Jose Mora","20/10/2022"));
-        asignarResena(juegos,c_reseña);
-        
-       
+        asignarResena(juegos,c_reseña);           
         return juegos;
     }
+    //asigna las resenas a sus respectivos juegos en la circularlinkedlist
     public static CircularDoublyLinkedList<Juego> asignarResena(CircularDoublyLinkedList<Juego> juegos,  ArrayList<Reseña> resena){
-        Node<Juego> actual = juegos.getTail();
-        
+        Node<Juego> actual = juegos.getTail();        
         for (int i= 0 ;i<resena.size();i++){
             for (int j = 0 ;j<juegos.size();i++){
                 actual = actual.getNext();
                 if(resena.get(i).getNombreJuego().equals(actual.getVal().getTitulo())){
                     actual.getVal().getReseñas().addLast(resena.get(i));
                     j=resena.size();
-                }
-                
+                }                
             }
-                
         }
-        return juegos;
-        
+        return juegos;        
     }
 }

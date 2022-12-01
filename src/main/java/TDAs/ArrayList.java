@@ -10,7 +10,6 @@ package TDAs;
  */
 
 import java.util.Iterator;
-import java.util.Comparator;
 
 
 public class ArrayList<G> implements List<G> {

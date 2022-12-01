@@ -14,6 +14,8 @@ import java.util.Queue;
  * @author anton
  */
 public class Organizar {
+    
+    //ordena los juegos por orden alfabetico segun el titulo
     public static ArrayList<Juego> organizarJuegos(ArrayList<Juego> juegos){
         if(!juegos.isEmpty()){
             ArrayList<Juego> salida = new ArrayList<>();
@@ -29,6 +31,8 @@ public class Organizar {
             return null;
         }
     }
+    
+    //ordena las resenas por calificacion
     public static ArrayList<Reseña> organizarCalificacion(ArrayList<Reseña> resenas){
         if(!resenas.isEmpty()){
             ArrayList<Reseña> salida = new ArrayList<>();
@@ -44,6 +48,8 @@ public class Organizar {
             return null;
         }
     }
+    
+    //ordena las resenas segun sus fechas
     public static ArrayList<Reseña> organizarFecha(ArrayList<Reseña> resenas){
         if(!resenas.isEmpty()){
             ArrayList<Reseña> salida = new ArrayList<>();
