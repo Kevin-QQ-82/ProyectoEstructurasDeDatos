@@ -55,9 +55,6 @@ public class ArrayList<G> implements List<G> {
             return false;
         } else if (this.isFull()){
             this.addCapacity();
-        } else if(this.isEmpty()){
-            elements[effectiveSize++] = e;
-            return true;
         }
         int index = effectiveSize;
         elements[index]= e;
