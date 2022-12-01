@@ -111,4 +111,29 @@ public class Juego {
     public PriorityQueue<Reseña> getReseñas() {
         return Reseñas;
     }
+
+    public Date getFecha_l() {
+        return fecha_l;
+    }
+
+    public static SimpleDateFormat getSdf() {
+        return sdf;
+    }
+
+    public void setScreenshot(ArrayList<Image> Screenshot) {
+        this.Screenshot = Screenshot;
+    }
+
+    public void setReseñas(PriorityQueue<Reseña> Reseñas) {
+        this.Reseñas = Reseñas;
+    }
+
+    public void setFecha_l(Date fecha_l) {
+        this.fecha_l = fecha_l;
+    }
+
+    public static void setSdf(SimpleDateFormat sdf) {
+        Juego.sdf = sdf;
+    }
+    
 }
