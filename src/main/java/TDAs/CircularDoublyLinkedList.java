@@ -10,106 +10,196 @@ package TDAs;
  */
 public class CircularDoublyLinkedList<T> implements List<T> {
     
-    Node head;
-    Node tail;
-    
-    
+    private Node<T> head;
+    private Node<T> tail;
+    private int size;
+
     public CircularDoublyLinkedList(){
+        this.head=null;
+        this.tail=null;
+    }
+
+
+    @Override
+    public boolean isEmpty() {
+        return this.head == null;
+    }
+
+    @Override
+    public boolean addFirst(T value) {
+        Node<T> node= new Node(value);
+        if(!this.isEmpty()){
+            node.setNext(head);
+            node.setLast(tail);
+            head.setLast(node);
+            tail.setNext(node);
+            this.head = node;
+            this.size += 1;
+            return true;
+        }else if(this.isEmpty()){
+            this.head = node;
+            this.tail = node;
+            this.size += 1;
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+
+    @Override
+    public boolean addLast(T value) {
+        Node<T> node= new Node(value);
+        if(head != null){
+            node.setNext(head);
+            node.setLast(tail);
+            head.setLast(node);
+            tail.setNext(node);
+            this.tail = node;
+            this.size += 1;
+            return true;
+        }else if(head == null){
+            this.head = node;
+            this.tail = node;
+            this.size += 1;
+            return true;
+        }else{
+        return false;
+        }
+    }
+
+    @Override
+    public void add(int index, T element) {
+        if(!this.isEmpty()&& index <= this.size -1){
+            Node<T> nodoIngreso = new Node(element);
+            Node<T> nodoAnterior;
+            Node<T> nodoActual= this.head;
+            for(int i = 0 ; i<index;i++){
+                nodoActual = nodoActual.getNext();
+            }
+            nodoAnterior = nodoActual.getLast();
+            nodoAnterior.setNext(nodoIngreso);
+            nodoActual.setLast(nodoIngreso);
+            nodoIngreso.setLast(nodoAnterior);
+            nodoIngreso.setNext(nodoActual);
+            if(nodoAnterior == this.tail && index!=0){
+                this.tail = nodoIngreso;
+            }
+            this.size += 1;
+        }else{
+            throw new IndexOutOfBoundsException("Indice fuera de rango");
+        }
+    }
+
+    @Override
+    public T removeFirst() {
+        if(!this.isEmpty()){
+            Node<T> salida = this.head;
+            this.head = salida.getNext();
+            this.head.setLast(this.tail);
+            this.tail.setNext(this.head);
+            this.size -= 1;
+            return salida.getVal();
+        }
+        return null;
+    }
+
+    @Override
+    public T removeLast() {
+        if(!this.isEmpty()){
+            Node<T> salida = this.tail;
+            this.tail = salida.getLast();
+            this.head.setLast(this.tail);
+            this.tail.setNext(this.head);
+            this.size -= 1;
+            return salida.getVal();
+        }
+        return null;
+    }
+
+    @Override
+    public T remove(int index) {
+        if(!this.isEmpty()&& index <= this.size -1){
+            Node<T> nodoSalida= this.head;
+            Node<T> nodoAnterior;
+            Node<T> nodoNext;
+            for(int i = 0 ; i<index;i++){
+                nodoSalida = nodoSalida.getNext();
+            }
+            nodoAnterior = nodoSalida.getLast();
+            nodoNext = nodoSalida.getNext();
+            nodoAnterior.setNext(nodoNext);
+            nodoNext.setLast(nodoAnterior);
+            this.size -= 1;
+            return nodoSalida.getVal();
+        }else{
+            throw new IndexOutOfBoundsException("Indice fuera de rango");
+        }
+    }
+
+    @Override
+    public T get(int pos) {
+        if(!this.isEmpty()&& pos <= this.size -1){
+            Node<T> nodoSalida= this.head;
+            for(int i = 0 ; i<pos;i++){
+                nodoSalida = nodoSalida.getNext();
+            }
+            return nodoSalida.getVal();
+        }else{
+            throw new IndexOutOfBoundsException("Indice fuera de rango");
+        }   
+    }
+
+    @Override
+    public T set(int index, T element) throws IndexOutOfBoundsException {
+        if(!this.isEmpty()&& index <= this.size -1){
+            Node<T> nodoSalida= this.head;
+            for(int i = 0 ; i<index;i++){
+                nodoSalida = nodoSalida.getNext();
+            }
+            T salida = nodoSalida.getVal();
+            nodoSalida.setVal(element);
+            return salida;
+        }else{
+            throw new IndexOutOfBoundsException("Indice fuera de rango");
+        }   
+    }
+
+    @Override
+    public int size() {
+        return this.size;
+    }
+
+    @Override
+    public void clear() {
         this.head=null;
         this.tail=null;
     }
     
     
-    
-    public void insertFirst(int val){
-        Node node= new Node(val);
-        node.sgte= head;
-        node.ante= null;
-        
-        if(head != null){
-            head.ante= node;
-        }
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    private class Node{
-        int val;
-        Node sgte;
-        Node ante;
-        
-        public Node(int val){
-            this.val= val;
-        }
-        
-        public Node(int val, Node sgte, Node ante) {
-            this.val = val;
-            this.sgte = sgte;
-            this.ante = ante;
-        }
-        
-    }
-    
-    
-    
-    @Override
-    public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setHead(Node head) {
+        this.head = head;
     }
 
-    @Override
-    public boolean addFirst(T e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setTail(Node tail) {
+        this.tail = tail;
     }
 
-    @Override
-    public boolean addLast(T e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setSize(int size) {
+        this.size = size;
     }
 
-    @Override
-    public void add(int index, T element) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Node getHead() {
+        return head;
     }
 
-    @Override
-    public T removeFirst() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Node getTail() {
+        return tail;
     }
 
-    @Override
-    public T removeLast() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int getSize() {
+        return size;
     }
-
-    @Override
-    public T remove(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public T get(int pos) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public T set(int index, T element) throws IndexOutOfBoundsException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void clear() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
     
 }

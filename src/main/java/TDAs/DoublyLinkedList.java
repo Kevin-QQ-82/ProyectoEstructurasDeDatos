@@ -9,12 +9,19 @@ package TDAs;
  * @author Olivier MZ
  */
 public class DoublyLinkedList<G> implements List<G> {
-    
+    private Node head = null;
+    private Node tail = null;
+
     @Override
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
+    /**
+     *
+     * @param e
+     * @return
+     */
     @Override
     public boolean addFirst(G e) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
