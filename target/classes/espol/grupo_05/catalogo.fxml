@@ -29,21 +29,21 @@
                </HBox.margin>
             </Button>
             <Separator orientation="VERTICAL" prefHeight="26.0" prefWidth="28.0" />
-            <TextField promptText="TYPE FOR SEARCH" />
+            <TextField fx:id="entradaBusqueda" promptText="TYPE FOR SEARCH" />
          </children>
       </HBox>
       <Pane prefHeight="494.0" prefWidth="702.0">
          <children>
-            <Label fx:id="labelNombreJuego" layoutX="290.0" layoutY="384.0" text="APEX LEGENDS">
+            <Label fx:id="labelNombreJuego" layoutX="321.0" layoutY="380.0" text="NOMBRE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnAnterior" layoutX="31.0" layoutY="214.0" mnemonicParsing="false" text="Anterior" />
-            <Button fx:id="btnSiguiente" layoutX="605.0" layoutY="214.0" mnemonicParsing="false" text="Siguiente" />
+            <Button fx:id="btnAnterior" layoutX="31.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#cambiarPrevious" text="Anterior" />
+            <Button fx:id="btnSiguiente" layoutX="605.0" layoutY="214.0" mnemonicParsing="false" onMouseClicked="#cambiarNext" text="Siguiente" />
             <Label layoutX="605.0" layoutY="39.0" text="Contador: " />
             <Label fx:id="cantidadTotal" layoutX="634.0" layoutY="77.0" text="9" />
-            <ImageView fx:id="imgviewJUEGO" fitHeight="288.0" fitWidth="375.0" layoutX="164.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgviewJUEGO" fitHeight="288.0" fitWidth="375.0" layoutX="170.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
    </children>

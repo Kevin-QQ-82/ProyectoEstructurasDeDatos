@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    public static String pathImg = "Imagenes_J/";
+    public static String pathImg = "ImagenesCatalogo/";
     
     private static Scene scene;
 
