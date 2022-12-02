@@ -49,10 +49,7 @@ public class CatalogoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        
-        
+        mostrarDetalle();
     }    
     
     
@@ -100,15 +97,15 @@ public class CatalogoController implements Initializable {
             }
         }
             
+        if (btnSiguiente.getOnAction()!= null )    {
+        
+        }
         
         }
         }
 
     @FXML
     private void cambiarPrevious(MouseEvent event) {
-        
-        
-        
         
         
     }
