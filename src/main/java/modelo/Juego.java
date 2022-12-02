@@ -46,10 +46,10 @@ public class Juego {
     public Juego(String Titulo, String Descripcion, String genero, ArrayList<Image> Screenshot, String Desarrolladores, String fecha) {
             this.Titulo = Titulo;
             this.Descripcion = Descripcion;
-            this.Screenshot = null;
+            this.Screenshot = new ArrayList();
             this.Genero=genero;
             this.Desarrolladores = Desarrolladores;
-            this.Reseñas = null;
+            this.Reseñas = new ArrayList();
         try {
             this.fecha_l = sdf.parse(fecha);
         } catch (ParseException ex) {

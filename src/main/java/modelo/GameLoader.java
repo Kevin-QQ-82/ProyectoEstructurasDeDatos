@@ -50,7 +50,7 @@ public class GameLoader {
     public static CircularDoublyLinkedList<Juego> asignarResena(CircularDoublyLinkedList<Juego> juegos,  ArrayList<Reseña> resena){
         Node<Juego> actual = juegos.getTail();        
         for (int i= 0 ;i<resena.size();i++){
-            for (int j = 0 ;j<juegos.size();i++){
+            for (int j = 0 ;j<juegos.size();j++){
                 actual = actual.getNext();
                 if(resena.get(i).getNombreJuego().equals(actual.getVal().getTitulo())){
                     actual.getVal().getReseñas().addLast(resena.get(i));
