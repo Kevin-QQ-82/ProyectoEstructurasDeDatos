@@ -67,7 +67,7 @@ public class CatalogoController implements Initializable {
    
             // se recorre la lista circular doble
 
-           Iterator<Juego> it = (Iterator<Juego>) Juego.cargarJuegos();
+           Iterator<Juego> it = (Iterator<Juego>) GameLoader.cargarJuegos();
 //---------------------------------------------------
  
         while(it.hasNext()){

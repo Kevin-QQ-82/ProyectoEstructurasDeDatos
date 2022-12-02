@@ -1,11 +1,12 @@
 package espol.grupo_05;
 
+import TDAs.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
- 
+import modelo.*; 
 
 
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.io.IOException;
 public class App extends Application {
 
     public static String pathImg = "ImagenesCatalogo/";
-    
+    private final List<Juego> allGames = GameLoader.cargarJuegos();
     private static Scene scene;
 
     @Override

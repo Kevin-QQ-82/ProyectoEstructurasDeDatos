@@ -39,20 +39,23 @@ public class Juego {
     private ArrayList<Reseña> Reseñas;
     private Date fecha_l;
 
-    public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MMM/YYYY");
+    public static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+    
+    
 
     public Juego(String Titulo, String Descripcion, String genero, ArrayList<Image> Screenshot, String Desarrolladores, String fecha) {
-        try {
             this.Titulo = Titulo;
             this.Descripcion = Descripcion;
             this.Screenshot = null;
             this.Genero=genero;
             this.Desarrolladores = Desarrolladores;
             this.Reseñas = null;
+        try {
             this.fecha_l = sdf.parse(fecha);
         } catch (ParseException ex) {
-            ex.printStackTrace();
+           ex.printStackTrace();
         }
+        
     }
 
 
